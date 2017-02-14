@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<context:component-scan base-package="com.bridgeit" />
+
+	<!--<bean id="emp" class="com.bridgeit.bean.EmployeeBean"> <constructor-arg 
+		value="122" type="int" /> <constructor-arg value="Satyendra Singh" /> <constructor-arg> 
+		<ref bean="add" /> </constructor-arg> </bean> <bean id="add" class="com.bridgeit.bean.AddressBean"> 
+		<constructor-arg value="Bhopal" /> <constructor-arg value="MadhyaPradesh" 
+		/> <constructor-arg value="India" /> </bean> -->
+
+	<!-- This Configration for Question class using List collection of String 
+		type -->
+	<!-- <bean id="ques" class="com.bridgeit.bean.QuestionBean"> <constructor-arg 
+		value="111"></constructor-arg> <constructor-arg value="What is java?"></constructor-arg> 
+		<constructor-arg> <list> <value>Java is a programming language</value> <value>Java 
+		is a Platform</value> <value>Java is an Island of Indonasia</value> </list> 
+		</constructor-arg> </bean> -->
+
+	<!-- This Configration for Question class using Set collection of Non-String 
+		type -->
+	<!-- <bean id="ques" class="com.bridgeit.bean.QuestionBean"> <constructor-arg 
+		value="112"></constructor-arg> <constructor-arg value="What is java?"></constructor-arg> 
+		<constructor-arg> <set> <ref bean="ans1" /> <ref bean="ans2" /> </set> </constructor-arg> 
+		</bean> <bean id="ans1" class="com.bridgeit.bean.AnswerBean"> <constructor-arg 
+		value="1" /> <constructor-arg value="Java is case sensitive language" /> 
+		<constructor-arg value="guldu" /> </bean> <bean id="ans2" class="com.bridgeit.bean.AnswerBean"> 
+		<constructor-arg value="2" /> <constructor-arg value="Java is fast, secure, 
+		and reliable." /> <constructor-arg value="Satyendra" /> </bean> -->
+
+	<!-- The entry attribute of map is used to define the key and value information. -->
+	<!-- <bean id="ques" class="com.bridgeit.bean.QuestionBean"> <constructor-arg 
+		value="112" /> <constructor-arg value="What is java?" /> <constructor-arg> 
+		<map> <entry key="Java is a general purpose, high-level programming language 
+		developed by Sun Microsystems" value="Satyendra" /> <entry key="Java is an 
+		object-oriented language similar to C++." value="Uma solanki" /> <entry key="Java, 
+		everything is an Object." value="Amit parihaar" /> </map> </constructor-arg> 
+		</bean> -->
+
+	<!-- The key-ref and value-ref attributes of entry element is used to define 
+		the reference of bean in the map. -->
+
+	<!-- <bean id="ans1" class="com.bridgeit.bean.AnswerBean"> <constructor-arg 
+		value="1" /> <constructor-arg value="Java is case sensitive language" /> 
+		<constructor-arg value="10/02/2002" /> </bean> <bean id="ans2" class="com.bridgeit.bean.AnswerBean"> 
+		<constructor-arg value="2" /> <constructor-arg value="Java is fast, secure, 
+		and reliable." /> <constructor-arg value="12/12/2003" /> </bean> <bean id="user1" 
+		class="com.bridgeit.bean.UserBean"> <constructor-arg value="1" /> <constructor-arg 
+		value="Gulgu" /> <constructor-arg value="imguldu@gmail.com" /> </bean> <bean 
+		id="user2" class="com.bridgeit.bean.UserBean"> <constructor-arg value="2" 
+		/> <constructor-arg value="dinga" /> <constructor-arg value="imdinga@gmail.com" 
+		/> </bean> <bean id="ques" class="com.bridgeit.bean.QuestionBean"> <constructor-arg 
+		value="101" /> <constructor-arg value="What is Java?" /> <constructor-arg> 
+		<map> <entry key-ref="ans1" value-ref="user1" /> <entry key-ref="ans2" value-ref="user2" 
+		/> </map> </constructor-arg> </bean> -->
+
+	<!-- In such case, parent bean values will be inherited to the current bean. -->
+
+	<bean id="e1" class="com.bridgeit.bean.EmployeeBean">
+		<constructor-arg value="101"></constructor-arg>
+		<constructor-arg value="Sachin"></constructor-arg>
+
+	</bean>
+
+	<bean id="address1" class="com.bridgeit.bean.AddressBean">
+		<constructor-arg value="21,Lohianagar"></constructor-arg>
+		<constructor-arg value="Ghaziabad"></constructor-arg>
+		<constructor-arg value="UP"></constructor-arg>
+		<constructor-arg value="USA"></constructor-arg>
+	</bean>
+
+	<bean id="e2" class="com.bridgeit.bean.EmployeeBean" parent="e1">
+		<constructor-arg ref="address1"></constructor-arg>
+	</bean>  
+
+</beans>
