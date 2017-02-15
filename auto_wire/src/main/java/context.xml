@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config />
+
+<context:component-scan base-package="com.bridgeit.auto_wire"/>
+ 
+<bean id="color" class="com.bridgeit.auto_wire.Color">
+<property name="baseColor" value="white"/>
+<property name="textureColor" value="grey"/>
+</bean>
+
+<bean id="cat" class="com.bridgeit.auto_wire.Cat">
+<property name="name" value="cat"/>
+<property name="color" ref="color"></property>
+</bean>
+
+<bean id="dog" class="com.bridgeit.auto_wire.Dog" autowire="byName">
+<property name="name" value="dog"/>
+</bean>
+
+<bean id="elephant" class="com.bridgeit.auto_wire.Elephant" autowire="byType">
+<property name="name" value="elephant"/>
+</bean>
+
+<bean id="frog" class="com.bridgeit.auto_wire.Frog" autowire="constructor">
+<property name="name" value="frog"/>
+</bean>
+
+<bean id="tiger" class="com.bridgeit.auto_wire.Tiger">
+<property name="name" value="tiger"/>
+</bean>
+
+<bean id="monkey" class="com.bridgeit.auto_wire.Monkey">
+<property name="name" value="monkey"/>
+</bean>
+
+<bean id="lion" class="com.bridgeit.auto_wire.Lion">
+<property name="name" value="lion"/>
+</bean>
+
+<bean id="fox" class="com.bridgeit.auto_wire.Fox">
+<property name="name" value="fox"/>
+</bean>
+
+<bean id="snake" class="com.bridgeit.auto_wire.Snake">
+<property name="name" value="snake"/>
+</bean>
+
+</beans>
